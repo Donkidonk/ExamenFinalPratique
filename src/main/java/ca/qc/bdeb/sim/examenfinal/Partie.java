@@ -1,0 +1,46 @@
+package ca.qc.bdeb.sim.examenfinal;
+
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
+
+import java.util.ArrayList;
+
+public class Partie {
+
+
+    protected Raquette raquetteGauche;
+    protected Raquette raquetteDroite;
+
+    public Partie() {
+    }
+
+    public void update(double deltaTemps) {
+        // TODO : Faire avancer le jeu
+    }
+
+    public void draw(GraphicsContext context) {
+
+        context.setFill(Color.BLACK);
+
+        context.fillRect(0,0,640, 480);
+
+        context.setLineDashes(0);
+        context.setStroke(Color.WHITE);
+        context.strokeRect(640/2-(350/2),100,350,250);
+
+        context.setLineDashes(5);
+        context.strokeLine(640/2,480 //taille en y
+               ,640/2,0);
+
+        context.setLineDashes(0);
+        context.strokeLine(640,480/2,0,480/2);
+
+
+
+
+        // TODO : Dessiner le jeu
+    }
+}
