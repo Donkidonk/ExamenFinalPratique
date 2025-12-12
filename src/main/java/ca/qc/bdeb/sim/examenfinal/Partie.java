@@ -9,7 +9,7 @@ import javafx.scene.text.Font;
 
 import java.util.ArrayList;
 
-public class Partie {
+public class Partie  {
 
 
 
@@ -27,6 +27,7 @@ public class Partie {
     }
 
     public void update(double deltaTemps) {
+        raquetteGauche.updatePhysique(deltaTemps);
 
 
 

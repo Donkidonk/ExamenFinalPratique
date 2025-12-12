@@ -9,29 +9,42 @@ import javafx.geometry.Point2D;
 public class Raquette extends ObjetDuJeu{
 
 
-    private Point2D position;
-    private Point2D deplacement;
 
-@Override
+
+
+    public Raquette(){
+
+    }
+
+
+
+    @Override
 protected void updatePhysique(double deltaTemps){
     boolean haut= Input.isKeyPressed(KeyCode.UP);
     boolean bas=Input.isKeyPressed(KeyCode.DOWN);
 
+
     if(haut){
-         deplacement  = new Point2D(deplacement.getX(),
-                 600);
+       vy=-600;
+
     }
 
     if(bas){
-        deplacement= new Point2D(deplacement.getX(),
-                -600);
+      vy=600;
     }
-    position = position.add(deplacement.multiply(deltaTemps));
+
+    if(!haut && !bas ){
+       vy=0;
+
+    }
+//    if(y>Main.HEIGHT){
+//            vy=-vy;
+//        }
+
+
+        super.updatePhysique(deltaTemps);
 }
-    public Raquette(){
-        this.position= position;
-        this.deplacement= deplacement;
-    }
+
 
 
 
