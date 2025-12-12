@@ -1,5 +1,6 @@
 package ca.qc.bdeb.sim.examenfinal;
 
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
@@ -11,17 +12,30 @@ import java.util.ArrayList;
 public class Partie {
 
 
+
+    protected int score;
+
     protected Raquette raquetteGauche;
     protected Raquette raquetteDroite;
+    protected boolean finPartie;
+
 
     public Partie() {
+        this.raquetteGauche= new Raquette();
+
+
     }
 
     public void update(double deltaTemps) {
+
+
+
         // TODO : Faire avancer le jeu
     }
 
     public void draw(GraphicsContext context) {
+
+
 
         context.setFill(Color.BLACK);
 
@@ -37,10 +51,15 @@ public class Partie {
 
         context.setLineDashes(0);
         context.strokeLine(640,480/2,0,480/2);
+        raquetteGauche.draw(context);
 
 
 
-
+       if(finPartie) {
+           context.setFill(Color.RED);
+           context.setFont(javafx.scene.text.Font.font(60));
+           context.fillText("GAME OVER", Main.WIDTH / 2 - 250, Main.HEIGHT / 2 - 30);
+       }
         // TODO : Dessiner le jeu
     }
 }
