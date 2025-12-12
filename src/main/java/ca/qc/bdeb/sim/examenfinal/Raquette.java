@@ -8,11 +8,16 @@ import javafx.geometry.Point2D;
 
 public class Raquette extends ObjetDuJeu{
 
-
+private boolean joueur;
 
 
 
     public Raquette(){
+      this.joueur= joueur;
+
+      if(joueur){
+
+      }
 
     }
 
@@ -23,7 +28,9 @@ protected void updatePhysique(double deltaTemps){
     boolean haut= Input.isKeyPressed(KeyCode.UP);
     boolean bas=Input.isKeyPressed(KeyCode.DOWN);
 
-     x=Main.WIDTH-15;
+
+     x=0;
+
     if(haut){
        vy=-600;
 
