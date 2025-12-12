@@ -22,18 +22,33 @@ public class Partie  {
 
     public Partie() {
         this.raquetteGauche= new Raquette(true,true);
+        this.raquetteDroite= new Raquette(false, false);
 
 
     }
 
     public void update(double deltaTemps) {
+        if(Input.isKeyPressed(KeyCode.UP)) {
+            raquetteGauche.deplacer(deltaTemps, -600);
+        }
+         if(Input.isKeyPressed(KeyCode.DOWN)){
+             raquetteGauche.deplacer(deltaTemps, 600);
+         }
+
+
+
+
+
+
         raquetteGauche.updatePhysique(deltaTemps);
+        raquetteDroite.updatePhysique(deltaTemps);
 
 
 
 
         // TODO : Faire avancer le jeu
     }
+
 
     public void draw(GraphicsContext context) {
 
@@ -54,6 +69,7 @@ public class Partie  {
         context.setLineDashes(0);
         context.strokeLine(640,480/2,0,480/2);
         raquetteGauche.draw(context);
+        raquetteDroite.draw(context);
 
 
 

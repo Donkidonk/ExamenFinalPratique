@@ -44,12 +44,65 @@ private double duree;
     @Override
 protected void updatePhysique(double deltaTemps){
 
+        if(joueur){
+            y+= vy*deltaTemps;
 
-        super.updatePhysique(deltaTemps);
+        }
+        else{
+            y+=vy*direction*deltaTemps;
+            duree-= deltaTemps;
+            //GENRE DURÉE ===2 SEC M,AIS LA LE DELTA TEMPS AUGMENT SO APRES DUREE=0;
+//            duree= duree-deltaTemps;
+
+
+
+        }
+        if(duree<=0){
+            choisir();
+        }
+        if(y<=0){
+            y=0;
+            if(joueur){
+                vy=0;
+            }
+            else{
+                //EH, VA DANS LE SENS INVERSE BROSKI
+                //BIZARRE EUX 1 = EN BAS;
+                direction=1;
+                choisir();
+                //BLOQUE JUSQUA TU CHOISI L'AUTRE
+            }
+
+        }
+            if(y+h>= Main.HEIGHT){
+                y= Main.HEIGHT-h;
+                if(joueur){
+                    vy=0;
+                }
+                else{
+                    direction=-1; //LA IL MONTE MEME SI CEST -1
+                    choisir();
+
+                }
+            }
+
+
+
+
+
+//        super.updatePhysique(deltaTemps);
 
 
 }
 
+    public void deplacer(double deltatemps, double vy){
+        y+= deltatemps*vy;
+
+
+        //EMPÊCHER LE TRUC DE SORTIR
+
+
+    }
 
 
 public void choisir(){
@@ -62,6 +115,7 @@ public void choisir(){
             direction =1;
         }
         duree= Math.random()+1;
+        //DUREE DE SA VITESSE GENRE IL VA EN HAUT PENDANS 2 SEC
 
 
 }
