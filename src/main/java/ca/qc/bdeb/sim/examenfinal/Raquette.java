@@ -23,7 +23,7 @@ protected void updatePhysique(double deltaTemps){
     boolean haut= Input.isKeyPressed(KeyCode.UP);
     boolean bas=Input.isKeyPressed(KeyCode.DOWN);
 
-
+     x=Main.WIDTH-15;
     if(haut){
        vy=-600;
 

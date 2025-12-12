@@ -44,11 +44,11 @@ public class Partie  {
 
         context.setLineDashes(0);
         context.setStroke(Color.WHITE);
-        context.strokeRect(640/2-(350/2),100,350,250);
+        context.strokeRect(Main.WIDTH/2-(350/2),100,350,250);
 
         context.setLineDashes(5);
-        context.strokeLine(640/2,480 //taille en y
-               ,640/2,0);
+        context.strokeLine(Main.WIDTH/2,480 //taille en y
+               ,Main.WIDTH/2,0);
 
         context.setLineDashes(0);
         context.strokeLine(640,480/2,0,480/2);
