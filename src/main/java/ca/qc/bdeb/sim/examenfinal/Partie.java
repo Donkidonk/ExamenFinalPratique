@@ -21,7 +21,7 @@ public class Partie  {
 
 
     public Partie() {
-        this.raquetteGauche= new Raquette();
+        this.raquetteGauche= new Raquette(true,true);
 
 
     }

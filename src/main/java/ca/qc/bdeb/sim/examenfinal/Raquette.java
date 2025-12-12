@@ -9,15 +9,33 @@ import javafx.geometry.Point2D;
 public class Raquette extends ObjetDuJeu{
 
 private boolean joueur;
+private boolean gauche;
+private double direction;
+private double duree;
 
 
 
-    public Raquette(){
+
+    public Raquette(boolean joueur, boolean gauche){
+
       this.joueur= joueur;
+      this.gauche = gauche;
+      this.w= 15; //LARGEUR
+      this.h=90;//HAUTEUR
+      this.y= (Main.WIDTH-h)/2;
+      this.vx=0;
 
       if(joueur){
+          this.vy=600;
+          this.x=10;
+      }
+      else{
+          this.vy=200;
+          this.x=Main.WIDTH-w-10;
+          choisir();
 
       }
+
 
     }
 
@@ -25,31 +43,27 @@ private boolean joueur;
 
     @Override
 protected void updatePhysique(double deltaTemps){
-    boolean haut= Input.isKeyPressed(KeyCode.UP);
-    boolean bas=Input.isKeyPressed(KeyCode.DOWN);
-
-
-     x=0;
-
-    if(haut){
-       vy=-600;
-
-    }
-
-    if(bas){
-      vy=600;
-    }
-
-    if(!haut && !bas ){
-       vy=0;
-
-    }
-//    if(y>Main.HEIGHT){
-//            vy=-vy;
-//        }
 
 
         super.updatePhysique(deltaTemps);
+
+
+}
+
+
+
+public void choisir(){
+
+        if(Math.random()<0.5){
+            direction= -1;
+
+        }
+        else{
+            direction =1;
+        }
+        duree= Math.random()+1;
+
+
 }
 
 
