@@ -18,11 +18,13 @@ public class Partie  {
     protected Raquette raquetteGauche;
     protected Raquette raquetteDroite;
     protected boolean finPartie;
+    protected Balle balle;
 
 
     public Partie() {
         this.raquetteGauche= new Raquette(true,true);
         this.raquetteDroite= new Raquette(false, false);
+        this.balle= new Balle();
 
 
     }
@@ -70,6 +72,9 @@ public class Partie  {
         context.strokeLine(640,480/2,0,480/2);
         raquetteGauche.draw(context);
         raquetteDroite.draw(context);
+        balle.draw(context);
+
+
 
 
 
