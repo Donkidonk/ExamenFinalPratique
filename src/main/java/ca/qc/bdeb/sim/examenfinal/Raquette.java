@@ -103,7 +103,9 @@ protected void updatePhysique(double deltaTemps){
 
 
     }
-
+public double getX(){
+        return  x;
+}
 
 public void choisir(){
 
@@ -127,6 +129,7 @@ public void choisir(){
 //    - Position : côté gauche du terrain. Initialement : centrée verticalement.
 //            - Forme : rectangle blanc de largeur=15px et de hauteur=90px.
 //- Déplacement : vertical contrôlé par le joueur
+
     @Override
     public void draw(GraphicsContext context) {
 
