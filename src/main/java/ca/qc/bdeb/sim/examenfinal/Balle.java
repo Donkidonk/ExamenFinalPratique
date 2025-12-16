@@ -10,7 +10,7 @@ public class Balle extends ObjetDuJeu{
 Random r = new Random();
 double vy;
 double vx;
-double x;
+
     private double direction;
 
 public Balle(){
@@ -52,31 +52,22 @@ public Balle(){
                 autre.getBas() < this.getHaut());
 
 
-    }
-
-    public void rebondir() {
-
-            vx = -vx;
-            vy = Math.random() * 360 - 180; //DEMANDER A CHAT
-
-    }
-    public void reintinialiser(){
-    x= Main.WIDTH/2;
-    y=Main.HEIGHT/2;
-//    int rand= r.nextInt(1,2);
-//    if(rand==1){
-//        rand=-1;
-//    }
-//    if(rand == 2){
-//        rand=1;
-//    }
-//    vx= rand*vx;
-//    vy=rand*vy;
-
-
 
     }
 
+    public void rebondir(Balle balle, Raquette autre ) {
+
+
+        vx = -vx;
+
+        vy = Math.random() * 360 - 180; //DEMANDER A CHAT
+
+
+    }
+    public void reintinialiser() {
+        x = Main.WIDTH / 2;
+        y = Main.HEIGHT / 2;
+    }
 
     @Override
 

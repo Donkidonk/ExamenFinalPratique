@@ -47,25 +47,23 @@ public class Partie  {
          }
 
 
-         if(balle.collision(raquetteDroite) ){
-             balle.rebondir();}
 
-         if(balle.collision(raquetteGauche)){
-             balle.rebondir();
-         }
+        if(balle.collision(raquetteDroite) || balle.collision(raquetteGauche) ){
+            balle.rebondir(balle, raquetteGauche);
+
+            }
 
 
-        if(balle.x>= Main.WIDTH || balle.x<0){
+        if(balle.x>= Main.WIDTH || balle.x<=0||  balle.y>=Main.HEIGHT|| balle.y<=0){
 
-//            finPartie= true;
-            balle.x= Main.WIDTH/2;
+            balle.reintinialiser();
         }
 
-        if(balle.y>= Main.HEIGHT && balle.x<= Main.WIDTH/2){
+        if(balle.x<= Main.WIDTH/2 &&(balle.y> Main.HEIGHT ||balle.y<0 ) ){
             pointageRobot++;
             balle.reintinialiser();
         }
-        if(balle.y>= Main.HEIGHT && balle.x>= Main.WIDTH/2){
+        if((balle.y> Main.HEIGHT ||balle.y<=0 ) && balle.x>= Main.WIDTH/2){
             pointageJoueur++;
             balle.reintinialiser();
         }
